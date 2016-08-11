@@ -13,6 +13,9 @@
     <link rel="shortcut icon" href="{{asset "img/favicon.ico"}}">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/lcd" type="text/css"/>	
+
     <link rel="stylesheet" href="{{asset "css/layout.css"}}">
     <link rel="stylesheet" href="{{asset "css/syntax-highlighting.css"}}">
 
@@ -27,13 +30,58 @@
   <body>
     <div role="main" class="container">
       <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xs-offset-0 col-sm-offset-0 col-md-offset-1 col-lg-offset-1">
+	<style>
+	h1 {
+    	font-family: 'LCD14';
+    	font-weight: normal;
+    	font-style: italic;
+    	font-size: 100px;
+    	color: #FFFFFF;
+    	position: absolute;
+    	padding-left: 130px;
+	}
+	</style>	
+<a href="http://delta-sine.bandcamp.com">
+	<h1>DELTA-SINE</h1>
+</a>
+	<div class="wrapper">
+		<canvas id="scope">
+		</canvas><!-- END scope -->
+	</div><!-- END WRAPPER -->
+	<!--<a href="http://delta-sine.bandcamp.com">
+	
+	<img src="http://f4.bcbits.com/img/a0965023501_2.jpg"/></a>-->
+	
+	<audio autoplay="true"></audio>
+
+	<script>
+
+			var s3_prefix = "https://s3-us-west-2.amazonaws.com/delta-sine/music/00/";
+			var songz = [
+        		"Cumbia_Sobre_el_Rio_Estigia_mp3.mp3",
+        		"Baja_California_Analog_Version_II_short_play_mp3.mp3",
+        		"Mojave_version_analoga_mp3.mp3",
+        		"Baja_California_Good_bye_San_Francisco_mp3.mp3",
+        		"SOF_SOP_night_version_20151220_mp3.mp3",
+        		"Clandestine_Activities_Analog_Version.mp3",
+        		"Tijuana on Acid+_CC.mp3.mp3"
+			];
+			var song = songz[Math.floor(Math.random()*songz.length)];
+			load_song = s3_prefix + song;
+			window.load_song = load_song;
+			//document.getElementsByTagName("audio").src=window.load_song;
+			document.getElementsByTagName("audio")[0].setAttribute("src", load_song);
+	</script>
+        
+	<script src="wav_runner.js" type="text/javascript"></script>
+        
+	<div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xs-offset-0 col-sm-offset-0 col-md-offset-1 col-lg-offset-1">
           <div class="indentation-container"><span class="control inline">{</span><div class="row indentation-content">
               <div class="indentation indentation-toggle">
                 <div class="indentation-line"></div>
               </div>
               <div class="col-xs-12 col-sm-11 col-md-11 col-lg-11 col-xs-offset-0 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 hash">
-                {{{body}}}
+                <!-- {{{body}}} -->
 
                 <div class="array-item indentation-container">
                   <span class="attribute">"follow"</span><span class="control inline">:</span>
@@ -44,15 +92,15 @@
                     <div class="col-xs-12 col-sm-11 col-md-11 col-lg-11 col-xs-offset-0 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
 
                       <div>
-                        <span class="value">"<a href="{{@blog.url}}/rss/" target="_blank">rss</a>"</span><span class="control inline">,</span>
+                        <span class="value">"<a href="http://delta-sine.bandcamp.com" target="_blank">bandcamp</a>"</span><span class="control inline">,</span>
                       </div>
 
                       <div>
-                        <span class="value">"<a href="https://github.com/secondimpression" target="_blank">github</a>"</span><span class="control inline">,</span>
+                        <span class="value">"<a href="https://www.instagram.com/delta_sine/" target="_blank">instagram</a>"</span><span class="control inline">,</span>
                       </div>
 
                       <div>
-                        <span class="value">"<a href="https://twitter.com/2ndimp_" target="_blank">twitter</a>"</span>
+                        <span class="value">"<a href="https://facebook.com/delta.sine.band" target="_blank">facebook</a>"</span>
                       </div>
 
                     </div>
@@ -76,5 +124,15 @@
     <script src="{{asset "js/layout.js"}}"></script>
 
     {{ghost_foot}}
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-81946016-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
   </body>
 </html>
